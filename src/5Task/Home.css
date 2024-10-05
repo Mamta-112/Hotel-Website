@@ -1,0 +1,571 @@
+
+.ImageContainer {
+  width: 100%;
+  height: auto;
+  background-image: url("/public/homePage/hotalimage.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 40px 10px;
+  box-sizing: border-box;
+  height: 500px;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 10px 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: white;
+}
+
+.textContainer h5 {
+  font-size: 30px;
+}
+
+.btn {
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+/* searchBox------------------------- */
+.searchBox {
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 10px; 
+  margin-top: -30px;
+  background-color: transparent;
+  flex-wrap: wrap; 
+}
+.dateInputs,
+.selectInputs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+input,
+select {
+  padding: 15px;
+  font-size: 16px;
+  min-width: 150px; 
+  flex: 1; 
+}
+.searchBtn {
+  font-size: 16px;
+  background-color: #ad58eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  line-height: 20px;
+  width: 150px;
+}
+
+/* grid room css................................ */
+
+.gridContainer {
+  max-width: 100%;
+  margin: 0px auto 30px;
+  text-align: center;
+}
+.cardgridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 10px;
+  gap: 1rem; 
+}
+.gridCard {
+  background-color: #f5f5f5;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-sizing: border-box;
+  padding: 10px;
+  flex: 1 1 calc(33.333% - 1rem);
+  min-width: 300px; 
+}
+.gridCard img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  width: 585px;
+}
+
+
+.gridpriceBtn {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 10px 10px;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin: -15px 15px;
+}
+.gridCard div button {
+  padding: 10px 9px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
+
+.gridCard div button:last-child {
+  margin-left: 10rem;
+}
+.gridroomName {
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+
+.gridstars {
+  font-size: x-large;
+  margin-left: 65px;
+}
+
+.stars svg {
+  margin-right: 2px;
+}
+.gridroomDetails {
+  display: flex;
+  align-items: center; 
+  padding: 5px 0;
+  flex-wrap: wrap; 
+  gap: 30px;
+  
+}
+
+.gridroomDetails span {
+  margin-right: 10px; 
+  font-size: 1rem;
+  color: #555;
+}
+
+.gridroomDetails span:last-child {
+  margin-right: 0; 
+}
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .gridCard {
+    flex: 1 1 calc(50% - 1rem); 
+  }
+}
+@media (max-width: 768px) {
+  .gridCard {
+    flex: 1 1 100%; 
+    margin-bottom: 1.5rem;
+  }
+ 
+  .gridroomDetails span {
+    margin-right: 0; 
+    margin-bottom: 5px; 
+  }
+}
+
+/*slider room style------------------- */
+.SliderroomsContainer {
+  max-width: 100%;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+
+.SliderparagrapRooms {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #666666;
+  margin-bottom: 20px;
+}
+.SliderscrollWrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.SliderscrollWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.SliderroomCard {
+  flex: 0 0 auto; 
+  width: 300px; 
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: left;
+}
+
+.SliderroomCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.SliderroomDetails {
+  /* display: flex; */
+  /* align-items: center; */
+  margin: 10px ;
+  gap: 15px;
+}
+.SliderroomName {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.sliderstars {
+  font-size: large;
+  margin-left: 65px;
+}
+
+.sliderstars svg {
+  margin-right: .8px;
+}
+.SliderpriceBtn {
+  background-color: blueviolet;
+  color: white;
+  padding: 5px 10px;
+  border-radius: .25rem;
+  font-size: 14px;
+  cursor: pointer;
+  margin:-15px 10px;
+}
+.SlideractionButtons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+}
+
+.SliderviewBtn {
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left:.8rem;
+}
+
+.SliderbookBtn {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left:5rem;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .SliderroomCard {
+    width: 250px; 
+  }
+}
+
+@media (max-width: 480px) {
+  .SliderroomCard {
+    width: 200px; 
+  }
+
+  .SliderparagrapRooms {
+    font-size: 14px;
+  }
+/* 
+  .SliderroomDetails {
+    flex-direction: column;
+    align-items: flex-start;
+  } */
+
+  .SliderviewBtn, .SliderbookBtn {
+    padding: 6px 10px; /* Smaller buttons on mobile */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Frequently  Main container for two columns */
+.FrequentlyContainer{
+max-width: 100%;
+margin: 0 auto 30px;
+text-align: center;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+ }
+
+
+.column {
+  flex: 1;
+}
+
+.Quection{
+  background-color: #ad58eb;
+}
+/* Remove list-style and padding for ul */
+ul {
+  list-style-type: none;
+  padding: 0;
+
+}
+/* li {
+  margin: 0;
+} */
+summary {
+  list-style: none;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+font-size: 22px;
+}
+summary::marker {
+  content: none;
+}
+details {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+details p {
+  margin-top: 10px;
+}
+summary svg {
+  margin-left: 10px;
+  color: #888;
+}
+/* feedbackContainer css   ........................ */
+.clientContainer{
+  max-width: 100%;
+  margin: 0 auto 30px;
+  text-align: center;
+}
+.feedbackContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.scrollWrapper {
+  display: flex;
+  overflow-x: scroll;
+  padding: 20px;
+  scroll-behavior: smooth;
+  gap: 20px;
+}
+
+.scrollWrapper::-webkit-scrollbar {
+  display: none; /* Hides scrollbar */
+}
+
+.cardFeedback {
+  flex: 0 0 auto;
+  }
+.cardtextFeedback{
+  flex: 0 0 auto;
+  /* font-size: 16px; */
+  width: 210px;
+  height: 380px;
+  /* background-color: #fff; */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  background-color: #fff5dc
+}
+.feedbackCards {
+  font-size: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.cardFeedback p {
+  /* font-size: 0.9rem; */
+  margin-bottom: 15px;
+}
+
+.feedbackImage {
+  text-align: center;
+  margin-top: -34px;
+}
+
+.feedbackImage img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.feedbackImage h3 {
+  margin: 5px 0;
+  font-size: 1.1rem;
+}
+
+.feedbackImage span {
+  font-size: 0.9rem;
+  color: gray;
+}
+
+@media (max-width: 768px) {
+  .cardFeedback {
+    width: 250px;
+  }
+
+  .feedbackCards {
+    font-size: 1rem;
+  }
+
+  .cardFeedback p {
+    font-size: 0.8rem;
+  }
+
+  .feedbackImage h3 {
+    font-size: 1rem;
+  }
+
+  .feedbackImage span {
+    font-size: 0.8rem;
+  }
+}
+
+ /* Our Team....................... */
+ .OurTeamContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 20px;
+  max-width: 100%;
+  margin: 2rem 3rem;
+}
+
+.TeamCardContainer {
+  background-color: #f9f9f9;
+  height: 500px;
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.TeamImage img {
+  height: 300px;
+  width: 280px;
+  border-radius: 10px;
+}
+
+.icon {
+  margin-left: 14rem;
+  border: 2px solid #ad58eb;
+  background-color: #ad58eb;
+  margin-top: 0px;
+  border-radius: 1rem;
+}
+
+.teamName {
+  text-align: center;
+}
+
+/* Media Queries for Responsiveness */
+
+
+@media screen and (max-width: 1024px) {
+  .OurTeamContainer {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 210px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .OurTeamContainer {
+    grid-template-columns: 1fr;
+    margin: 0 64px;
+  }
+}
+
+ 
+/* OurBlogContainer............... */
+.OurBlogContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+    max-width: 100%;
+  padding-left: 1rem;
+  margin: 2rem 2rem;
+}
+
+.BlogCardContainer {
+  height: 400px;
+  width: 350px; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.BlogImage img {
+  height: 250px;
+  width: 320px ;
+  border-radius: 1.5rem;
+  padding: 1rem;
+}
+
+.Blogicon {
+  border: 2px solid black;
+  color: white;
+  background-color: black;
+  border-radius: .5rem;
+  font-size: 20px; 
+  margin-top: -56px;
+  width: 100px;
+  margin-left: 190px;
+}
+
+.BlogName {
+  text-align: center;
+  /* margin-top: -19px; */
+  padding: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media screen and (max-width: 1024px) {
+  .OurBlogContainer {
+    grid-template-columns: repeat(2, 1fr); 
+            margin: 0 123px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .OurBlogContainer {
+    grid-template-columns: 1fr; 
+  }
+}

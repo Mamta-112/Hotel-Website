@@ -1,0 +1,16 @@
+.Container{
+    text-align: center;
+    color: blue;
+    border:  2px solid black;
+    width: 600px;
+    background-color: antiquewhite;
+    border-radius: 1rem;
+}
+.inputtext{
+    margin-right: .5rem;
+    border-radius: .3rem;
+}
+.btn{
+    width: 150px;
+    border-radius: .5rem;
+}
