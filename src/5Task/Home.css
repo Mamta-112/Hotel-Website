@@ -34,7 +34,7 @@
   border:  2px solid white;
 }
 
-/* searchBox------------------------- */
+
 /* searchBox------------------------- */
 .searchBox {
   display: flex;
@@ -46,7 +46,7 @@
   width: 1100px; 
   margin-left: 48px;
   margin-top: -40px; 
-  /* background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important; */
+ background-color: white;
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 
 }
@@ -117,6 +117,14 @@
   max-width: 100%;
   margin: 0px auto 30px;
   text-align: center;
+}
+.paragrapRooms{
+  /* position: absolute; */
+    content: '';
+    width: 25%;
+    height: 4px;
+    background: blue;
+   margin-top: 30px;
 }
 .cardgridContainer {
   display: flex;
@@ -483,7 +491,6 @@ summary svg {
  .OurTeamContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
   gap: 20px;
   max-width: 100%;
   margin: 2rem 3rem;
@@ -491,7 +498,7 @@ summary svg {
 
 .TeamCardContainer {
   background-color: #f9f9f9;
-  height: 500px;
+  height:400px;
   width: 280px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -501,19 +508,53 @@ summary svg {
   height: 300px;
   width: 280px;
   border-radius: 10px;
+  /* position: relative; */
+  
 }
 
-.icon {
-  margin-left: 14rem;
-  border: 2px solid #ad58eb;
-  background-color: #ad58eb;
-  margin-top: 0px;
-  border-radius: 1rem;
+.OurTeamContainer .icon {
+text-align: center;
+margin-top: -160px;
+padding: 6px;
+position: absolute;
+margin-left: 245px;
+font-size: larger;
+display: flex;
+flex-direction: column-reverse;
+}
+.OurTeamContainer .icon  li{
+  /* padding-bottom: 4px; */
+  margin-bottom: 2px;
+}
+.facebook{
+  
+  background-color:#ad58eb;
+  width: 20px;
+  color: white;
+  border-radius: 4px;
+  align-items: end;
+  /* background-color: transparent; */
 }
 
 .teamName {
   text-align: center;
 }
+.icon a {
+  display: inline-block;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.icon a:hover,
+.icon a.active { /* Add the active state for clicked icons */
+  transform: scale(1.2);
+  color: #f39c12;
+}
+
+.icon a:active {
+  transition: none;
+}
+
 
 /* Media Queries for Responsiveness */
 

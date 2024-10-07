@@ -7,13 +7,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { ApiEdit } from './2Task/ApiEdit';
 // import { Header } from './3yositaCode/Header';
 import { Home } from './5Task/Home';
-
+// import { Slider } from './6Task/Slider';
 
 function App() {
   return (
     <>
     
-   
+   {/* <Slider/> */}
       <Home/>
       {/* <Router>
         <div>

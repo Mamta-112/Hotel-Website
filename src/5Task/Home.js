@@ -6,10 +6,26 @@ import { BsWifi } from "react-icons/bs";
 import { LuBath } from "react-icons/lu";
 
 import { FaPlus } from "react-icons/fa6";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faShare, faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+
+
+ import { FaArrowRight } from "react-icons/fa";
+import { TiSocialFacebook } from "react-icons/ti";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa6";
 import { IoShareSocialSharp } from "react-icons/io5";
-import { FaArrowRight } from "react-icons/fa";
 
 export const Home = () => {
+  const [activeIcon, setActiveIcon] = useState(null);
+
+  const handleIconClick = (icon) => {
+    setActiveIcon(icon);
+  }
+  //   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const [openIndex, setOpenIndex] = useState(null); // To track the open index
 
@@ -312,6 +328,7 @@ export const Home = () => {
       <div className='gridContainer'>
         <h2>Explore Our Rooms (Grid Style)</h2>
         <p className='paragrapRooms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua. Quis<br /> ipsum suspendisse ultrices gravida.</p>
+     
       </div>
       <div className='cardgridContainer'>
         {rooms.map((room) => (
@@ -472,21 +489,114 @@ export const Home = () => {
           incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
       </div>
       <div className='OurTeamContainer'>
+      {teamMembers.map((member, index) => (
+        <div key={index} className='TeamCardContainer'>
+          <div className='TeamImage'>
+            <img src={member.imgSrc} alt={member.name} />
+            <ul className='icon'>
+              <a 
+                href="#"
+                className={`facebook ${activeIcon === 'facebook' ? 'active' : ''}`}
+                onClick={() => handleIconClick('facebook')}
+              >
+                <li><TiSocialFacebook /></li>
+              </a>
+              <a 
+                href="#"
+                className={`twitter ${activeIcon === 'twitter' ? 'active' : ''}`}
+                onClick={() => handleIconClick('twitter')}
+              >
+                <li><FaXTwitter /></li>
+              </a>
+              <a 
+                href="#"
+                className={`instagram ${activeIcon === 'instagram' ? 'active' : ''}`}
+                onClick={() => handleIconClick('instagram')}
+              >
+                <li><FaInstagramSquare /></li>
+              </a>
+              <a 
+                href="#"
+                className={`linkedin ${activeIcon === 'linkedin' ? 'active' : ''}`}
+                onClick={() => handleIconClick('linkedin')}
+              >
+                <li><FaLinkedin /></li>
+              </a>
+              <a 
+                href="#"
+                className={`share ${activeIcon === 'share' ? 'active' : ''}`}
+                onClick={() => handleIconClick('share')}
+              >
+                <li><IoShareSocialSharp /></li>
+              </a>
+            </ul>
+          </div>
+          <div className='teamName'>
+            <h3>{member.name}</h3>
+            <span>{member.title}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+      {/* <div className='OurTeamContainer'>
         {teamMembers.map((member, index) => (
           <div key={index} className='TeamCardContainer'>
             <div className='TeamImage'>
               <img src={member.imgSrc} alt={member.name} />
-              <span className='icon'>
-                <IoShareSocialSharp />
-              </span>
-            </div>
+          
+                <ul className='icon'>
+                <a href="#" ><li className="facebook"><TiSocialFacebook /></li></a> 
+                <a href="#" className="Twitter"> <li className="facebook"><FaXTwitter /></li></a> 
+                <a href="#" className="InstagramSquare "><li className="facebook"><FaInstagramSquare /></li></a> 
+                <a href="#" className="Linkedin"><li className="facebook"><FaLinkedin /></li></a> 
+                <a href="#" className="ShareSocialSharp"><li className="facebook"> <IoShareSocialSharp /></li></a> 
+                </ul>
+               </div>
             <div className='teamName'>
               <h3>{member.name}</h3>
               <span>{member.title}</span>
             </div>
           </div>
         ))}
+      </div> */}
+         {/* <div className="w-64 bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="relative">
+        <img 
+          src="/api/placeholder/250/250" 
+          alt="Profile"
+          className="w-full h-48 object-cover"
+        />
+        <div className="absolute bottom-2 left-2">
+          <button 
+            className="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none"
+            onClick={toggleMenu}
+          >
+            <FontAwesomeIcon icon={faShare} />
+          </button>
+          {isMenuOpen && (
+            <div className="absolute left-0 bottom-12 bg-white shadow-md rounded-lg overflow-hidden">
+              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
+                <FontAwesomeIcon icon={faFacebookF} className="mr-3 text-blue-600" /> Facebook
+              </a>
+              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
+                <FontAwesomeIcon icon={faTwitter} className="mr-3 text-blue-400" /> Twitter
+              </a>
+              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
+                <FontAwesomeIcon icon={faInstagram} className="mr-3 text-pink-600" /> Instagram
+              </a>
+              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
+                <FontAwesomeIcon icon={faLinkedinIn} className="mr-3 text-blue-700" /> LinkedIn
+              </a>
+            </div>
+          )}
+        </div>
       </div>
+      <div className="p-4 text-center">
+        <h2 className="text-xl font-semibold text-gray-800">Jammy Haris</h2>
+        <p className="text-sm text-gray-600 mt-1">HR Manager</p>
+      </div>
+    </div> */}
       {/* OurBlogContainer............... */}
       <div className="clientContainer">
         <h2>Our Latest Blog</h2>
@@ -500,7 +610,7 @@ export const Home = () => {
               <img src={member.imgSrc} alt={member.name} />
             </div>
             <div className='Blogicon'>
-              <span >
+              <span  style={{ BackgroundColor: 'black' }}>
                 {member.tag}
               </span>
             </div>
