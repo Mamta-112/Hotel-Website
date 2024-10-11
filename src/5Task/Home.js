@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Home.css';
 import { FaStar } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
@@ -6,28 +6,30 @@ import { BsWifi } from "react-icons/bs";
 import { LuBath } from "react-icons/lu";
 
 import { FaPlus } from "react-icons/fa6";
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faShare, faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 
  import { FaArrowRight } from "react-icons/fa";
-import { TiSocialFacebook } from "react-icons/ti";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagramSquare } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa6";
-import { IoShareSocialSharp } from "react-icons/io5";
+// import { TiSocialFacebook } from "react-icons/ti";
+// import { FaXTwitter } from "react-icons/fa6";
+// import { FaInstagramSquare } from "react-icons/fa";
+// import { FaLinkedin } from "react-icons/fa6";
+// import { IoShareSocialSharp } from "react-icons/io5";
+import TeamMemberCard from './newbox';
+import Aos from 'aos';
+import 'aos/dist/aos.css'
 
 export const Home = () => {
+  useEffect(()=>{
+    Aos.init();
+  },[{ duraction:9000}])
   const [activeIcon, setActiveIcon] = useState(null);
 
   const handleIconClick = (icon) => {
     setActiveIcon(icon);
   }
-  //   const [isMenuOpen, setIsMenuOpen] = useState(false);
+ 
 
-  // const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const [openIndex, setOpenIndex] = useState(null); // To track the open index
+  const [openIndex, setOpenIndex] = useState(null); 
 
   const toggleDetails = (index) => {
     // Toggle open state
@@ -277,8 +279,8 @@ export const Home = () => {
   ]
   return (
     <div>
-      <div className='ImageContainer'>
-        <div className='textContainer'>
+      <div className='ImageContainer' >
+        <div className='textContainer' data-aos="fade-right" >
           <h2>Welcome To Our Motel </h2>
           <h1>Where friends and family will always feel at home!</h1>
           <button className='btn'> <a href="blog-details-right-sidebar.html" target="_blank" rel="icon">Contact Us</a>
@@ -287,7 +289,7 @@ export const Home = () => {
       </div>
 
       {/* searchBox......................................... */}
-      <div className='searchBox'>
+      <div className='searchBox'  data-aos="fade-up">
         <div className='dateInputs'>
           <input type='text' placeholder='Check In' />
           <input type='text' placeholder='Check Out' />
@@ -325,14 +327,15 @@ export const Home = () => {
         </div>
       </div>
       {/* Explore Our Rooms  (Grid Style) ............................. */}
-      <div className='gridContainer'>
+     
+      <div className='gridContainer' data-aos="fade-UP" >
         <h2>Explore Our Rooms (Grid Style)</h2>
         <p className='paragrapRooms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua. Quis<br /> ipsum suspendisse ultrices gravida.</p>
      
       </div>
-      <div className='cardgridContainer'>
+      <div className='cardgridContainer' data-aos="fade-UP">
         {rooms.map((room) => (
-          <div key={room.id} className='gridCard'>
+          <div key={room.id} className='gridCard' data-aos="fade-UP">
             <img src={room.image} alt="rooms" width={300} height={250} />
             <button className='gridpriceBtn'>{room.price}</button>
             <h5 className="gridroomName">{room.name}
@@ -340,7 +343,7 @@ export const Home = () => {
                 <FaStar style={{ color: 'gold' }} /><FaStar style={{ color: 'gold' }} /><FaStar style={{ color: 'gold' }} /><FaStar style={{ color: 'gold' }} /><FaStar style={{ color: 'gold' }} />
               </span>
             </h5>
-            <div className="gridroomDetails" style={{ padding: '.5rem' }}>
+            <div className="gridroomDetails" style={{ padding: '.5rem' }} >
               <span><FaBed style={{ color: 'blue' }} />{room.beds}</span>
               <span><LuBath style={{ color: 'blue' }} />{room.bath}</span>
               <span><BsWifi style={{ color: 'blue' }} />wifi</span>
@@ -348,63 +351,63 @@ export const Home = () => {
             <p style={{ padding: '.5rem' }}>{room.description}</p>
             <div >
               <button style={{ backgroundColor: 'blueviolet', marginLeft: '1.8rem' }}>View Details
-                
-              </button>
+                </button>
               <button style={{ backgroundColor: 'black', marginLeft: '6rem' }}>Book Now</button>
             </div>
           </div>
         ))}
       </div>
-
+      
       {/* Explore Our Rooms (Slider Style)..................... */}
 
-      <div className='SliderroomsContainer'>
+      <div className='gridContainer' data-aos="fade-UP">
         <h2>Explore Our Rooms (Slider Style)</h2>
         <p className='paragrapRooms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua. Quis<br /> ipsum suspendisse ultrices gravida.</p>
       </div>
-      <div className="SliderroomsContainer">
-        <div className="SliderscrollWrapper">
-          {rooms.map((room) => (
-            <div key={room.id} className="SliderroomCard">
-              <img src={room.image} alt={room.name} />
-              <button className="SliderpriceBtn">{room.price}</button>
-              <h5 className="SliderroomName">
-                {room.name}
-                <span className="sliderstars">
-                  <FaStar style={{ color: 'gold' }} />
-                  <FaStar style={{ color: 'gold' }} />
-                  <FaStar style={{ color: 'gold' }} />
-                  <FaStar style={{ color: 'gold' }} />
-                  <FaStar style={{ color: 'gold' }} />
-                </span>
-              </h5>
-              <div className="SliderroomDetails">
-                <span><FaBed style={{ color: 'blue' }} /> {room.beds}</span>
-                <span><LuBath style={{ color: 'blue' }} /> {room.bath}</span>
-                <span><BsWifi style={{ color: 'blue' }} /> Wifi</span>
-              </div>
-              <p>{room.description}</p>
-              <div className="SlideractionButtons">
-                <button className="SliderviewBtn">
-                <a href="https://demo.templatemonster.com/demo/450617.html" target="_blank" rel="icon">View Details</a>
-                </button>
-                <button className="SliderbookBtn"  >Book Now</button>
-              </div>
-            </div>
-          ))}
+      <div className="SliderroomsContainer" data-aos="fade-UP">
+  <div className="SliderscrollWrapper">
+    {rooms.map((room) => (
+      <div key={room.id} className="SliderroomCard">
+        <img src={room.image} alt={room.name} />
+        <button className="SliderpriceBtn">{room.price}</button>
+        <h5 className="SliderroomName">
+          {room.name}
+          <span className="sliderstars">
+            <FaStar style={{ color: 'gold' }} />
+            <FaStar style={{ color: 'gold' }} />
+            <FaStar style={{ color: 'gold' }} />
+            <FaStar style={{ color: 'gold' }} />
+            <FaStar style={{ color: 'gold' }} />
+          </span>
+        </h5>
+        <div className="SliderroomDetails">
+          <span><FaBed style={{ color: 'blue' }} /> {room.beds}</span>
+          <span><LuBath style={{ color: 'blue' }} /> {room.bath}</span>
+          <span><BsWifi style={{ color: 'blue' }} /> Wifi</span>
+        </div>
+        <p>{room.description}</p>
+        <div className="SlideractionButtons">
+          <button className="SliderviewBtn">
+            <a href="https://demo.templatemonster.com/demo/450617.html" target="_blank" rel="noopener noreferrer">View Details</a>
+          </button>
+          <button className="SliderbookBtn">Book Now</button>
         </div>
       </div>
+    ))}
+  </div>
+</div>
+
       {/* Frequently Asked Questions................................. */}
-      <div className='FrequentlyContainer'>
+      <div className='FrequentlyContainer' data-aos="fade-UP">
         <h2>Frequently Asked Questions</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
+        <p className='paragrapRooms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
       </div>
       <div class="container">
         {/* First Column */}
-        <div className="column">
-          <ul>
+        <div className="column" data-aos="fade-UP">
+          <ul data-aos="fade-UP">
             {faqsColumn1.map((question, index) => (
-              <li key={index} className="Quection">
+              <li key={index} className="Quection" data-aos="zoom-in">
                 <summary className='details'
                   onClick={() => toggleDetails(index)} // Toggle the open state on click
                   style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
@@ -427,10 +430,10 @@ export const Home = () => {
         </div>
 
         {/* Second Column */}
-        <div className="column">
-          <ul>
+        <div className="column" data-aos="fade-UP">
+          <ul data-aos="fade-UP">
             {faqsColumn2.map((question, index) => (
-              <li key={index + faqsColumn1.length} className="Quection">
+              <li key={index + faqsColumn1.length} className="Quection"  data-aos="zoom-in">
                 <summary className='details'
                   onClick={() => toggleDetails(index + faqsColumn1.length)} // Toggle the open state on click
                   style={{ cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
@@ -454,23 +457,23 @@ export const Home = () => {
       </div>
 
       {/* Clients Feedback............... */}
-      <div className="clientContainer">
+      <div className="clientContainer" data-aos="fade-UP">
         <h2>Our Clients Feedback</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        <p className='paragrapRooms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
       </div>
-      <div className="feedbackContainer">
-        <div className="scrollWrapper">
+      <div className="feedbackContainer" data-aos="fade-UP">
+        <div className="scrollWrapper"data-aos="fade-UP">
           {feedbackData.map((feedback, index) => (
 
-            <div className="cardFeedback" key={index}>
+            <div className="cardFeedback" key={index} data-aos="fade-UP">
               <div className="cardtextFeedback">  <span className="feedbackCards">
                 {[...Array(5)].map((_, i) => (
                   <FaStar key={i} style={{ color: "gold" }} />
                 ))}{" "}
                 (5.0)
               </span>
-                <p style={{ fontSize: "20px" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                   sed do eiusmod tempor incididunt ut labore et dolore magna ali. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
               </div>
               <div className="feedbackImage">
@@ -483,145 +486,44 @@ export const Home = () => {
         </div>
       </div>
       {/* Our Team....................... */}
-      <div className="clientContainer">
+      <div className="clientContainer" data-aos="fade-UP">
         <h2> Our Team</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        <p className='paragrapRooms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
       </div>
-      <div className='OurTeamContainer'>
-      {teamMembers.map((member, index) => (
-        <div key={index} className='TeamCardContainer'>
-          <div className='TeamImage'>
-            <img src={member.imgSrc} alt={member.name} />
-            <ul className='icon'>
-              <a 
-                href="#"
-                className={`facebook ${activeIcon === 'facebook' ? 'active' : ''}`}
-                onClick={() => handleIconClick('facebook')}
-              >
-                <li><TiSocialFacebook /></li>
-              </a>
-              <a 
-                href="#"
-                className={`twitter ${activeIcon === 'twitter' ? 'active' : ''}`}
-                onClick={() => handleIconClick('twitter')}
-              >
-                <li><FaXTwitter /></li>
-              </a>
-              <a 
-                href="#"
-                className={`instagram ${activeIcon === 'instagram' ? 'active' : ''}`}
-                onClick={() => handleIconClick('instagram')}
-              >
-                <li><FaInstagramSquare /></li>
-              </a>
-              <a 
-                href="#"
-                className={`linkedin ${activeIcon === 'linkedin' ? 'active' : ''}`}
-                onClick={() => handleIconClick('linkedin')}
-              >
-                <li><FaLinkedin /></li>
-              </a>
-              <a 
-                href="#"
-                className={`share ${activeIcon === 'share' ? 'active' : ''}`}
-                onClick={() => handleIconClick('share')}
-              >
-                <li><IoShareSocialSharp /></li>
-              </a>
-            </ul>
-          </div>
-          <div className='teamName'>
-            <h3>{member.name}</h3>
-            <span>{member.title}</span>
-          </div>
-        </div>
-      ))}
-    </div>
-
-      {/* <div className='OurTeamContainer'>
+     
+<div className='OurTeamContainer' data-aos="fade-UP">
         {teamMembers.map((member, index) => (
-          <div key={index} className='TeamCardContainer'>
-            <div className='TeamImage'>
-              <img src={member.imgSrc} alt={member.name} />
-          
-                <ul className='icon'>
-                <a href="#" ><li className="facebook"><TiSocialFacebook /></li></a> 
-                <a href="#" className="Twitter"> <li className="facebook"><FaXTwitter /></li></a> 
-                <a href="#" className="InstagramSquare "><li className="facebook"><FaInstagramSquare /></li></a> 
-                <a href="#" className="Linkedin"><li className="facebook"><FaLinkedin /></li></a> 
-                <a href="#" className="ShareSocialSharp"><li className="facebook"> <IoShareSocialSharp /></li></a> 
-                </ul>
-               </div>
-            <div className='teamName'>
-              <h3>{member.name}</h3>
-              <span>{member.title}</span>
-            </div>
-          </div>
+          <TeamMemberCard key={index} member={member} />
         ))}
-      </div> */}
-         {/* <div className="w-64 bg-white shadow-lg rounded-lg overflow-hidden">
-      <div className="relative">
-        <img 
-          src="/api/placeholder/250/250" 
-          alt="Profile"
-          className="w-full h-48 object-cover"
-        />
-        <div className="absolute bottom-2 left-2">
-          <button 
-            className="p-2 bg-blue-500 text-white rounded-full hover:bg-blue-600 focus:outline-none"
-            onClick={toggleMenu}
-          >
-            <FontAwesomeIcon icon={faShare} />
-          </button>
-          {isMenuOpen && (
-            <div className="absolute left-0 bottom-12 bg-white shadow-md rounded-lg overflow-hidden">
-              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
-                <FontAwesomeIcon icon={faFacebookF} className="mr-3 text-blue-600" /> Facebook
-              </a>
-              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
-                <FontAwesomeIcon icon={faTwitter} className="mr-3 text-blue-400" /> Twitter
-              </a>
-              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
-                <FontAwesomeIcon icon={faInstagram} className="mr-3 text-pink-600" /> Instagram
-              </a>
-              <a href="#" className="flex items-center py-2 px-4 hover:bg-gray-100 text-gray-700">
-                <FontAwesomeIcon icon={faLinkedinIn} className="mr-3 text-blue-700" /> LinkedIn
-              </a>
-            </div>
-          )}
-        </div>
       </div>
-      <div className="p-4 text-center">
-        <h2 className="text-xl font-semibold text-gray-800">Jammy Haris</h2>
-        <p className="text-sm text-gray-600 mt-1">HR Manager</p>
-      </div>
-    </div> */}
+     
       {/* OurBlogContainer............... */}
-      <div className="clientContainer">
+      <div className="clientContainer" data-aos="fade-UP">
         <h2>Our Latest Blog</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        <p className='paragrapRooms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
           incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.</p>
       </div>
-      <div className='OurBlogContainer'>
+      <div className='OurBlogContainer' data-aos="fade-UP">
         {blogMembers.map((member, index) => (
-          <div key={index} className='BlogCardContainer'>
-            <div className='BlogImage'>
-              <img src={member.imgSrc} alt={member.name} />
+          <div key={index} className='BlogCardContainer' data-aos="fade-UP">
+            <div className='BlogImage' data-aos="zoom-in-up">
+              <img src={member.imgSrc} alt={member.name}  />
             </div>
-            <div className='Blogicon'>
+            <div className='Blogicon' data-aos="zoom-in-up">
               <span  style={{ BackgroundColor: 'black' }}>
                 {member.tag}
               </span>
             </div>
             <div className='BlogName'>
               <p>{member.text}</p>
-              <a href="blog-details-right-sidebar.html" target="_blank" rel="icon">Read <FaArrowRight /></a>
+              <a href="blog-details-right-sidebar.html" target="_blank" rel="icon">Read More <FaArrowRight /></a>
 
             </div>
           </div>
         ))}
       </div>
-    </div>
+      </div>
+    
   );
 };

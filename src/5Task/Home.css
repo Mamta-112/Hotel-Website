@@ -38,76 +38,97 @@
 /* searchBox------------------------- */
 .searchBox {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   border: 2px solid whitesmoke;
-  align-items: center; 
-  padding: 20px; 
-  gap: 10px; 
-  width: 1100px; 
-  margin-left: 48px;
-  margin-top: -40px; 
- background-color: white;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  max-width: 1000px; /* This ensures the box doesn't stretch beyond 1000px */
+  justify-content: center;
+  margin: 0 auto; /* Centers the search box */
+  margin-top: -40px;
+  margin-bottom: 30px;
+  background-color: white;
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
-
 }
 
 .dateInputs input,
 .selectInputs select {
-  flex: 1; 
-  min-width: 120px; 
-  padding: 10px; 
+  flex: 1;
+  min-width: 120px;
+  padding: 10px;
   margin: 0 10px;
 }
 
 .searchBtn {
-  padding: 10px 20px; 
-  background-color: #007BFF; 
+  padding: 10px 20px;
+  background-color: #007BFF;
   color: white;
   border: none;
-  border-radius: 5px; 
-  cursor: pointer; 
-  flex-shrink: 0; 
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .searchBtn:hover {
-  background-color: #0056b3; 
+  background-color: #0056b3;
 }
 
 /* Responsive Styles */
-@media (max-width: 768px) { 
+@media (max-width: 1024px) {
   .searchBox {
-    flex-direction: column; 
-    align-items: stretch; 
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .searchBox {
+    flex-direction: column;
+    align-items: stretch;
     width: 90%;
-    margin-left: 0; 
-    margin-top: 0; 
-    background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
   }
 
   .dateInputs,
   .selectInputs {
-    display: flex; 
-    flex-direction: row; 
-    justify-content: space-between; 
-    margin-bottom: 10px; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
   }
 
   .dateInputs input,
   .selectInputs select {
-    flex: 1; 
-    margin-right: 5px; 
+    flex: 1;
+    margin-right: 5px;
   }
 
   .dateInputs input:last-child,
   .selectInputs select:last-child {
-    margin-right: 0; 
+    margin-right: 0;
   }
 
   .searchBtn {
-    width: 100%; 
-    margin-top: 10px; 
+    width: 100%;
+    margin-top: 10px;
   }
 }
+
+@media (max-width: 480px) {
+  .searchBox {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .dateInputs input,
+  .selectInputs select {
+    padding: 8px;
+    margin: 0 5px;
+  }
+}
+
 
 
 
@@ -118,11 +139,12 @@
   margin: 0px auto 30px;
   text-align: center;
 }
-.paragrapRooms{
-  /* position: absolute; */
+.paragrapRooms::after{
+  position: absolute;
     content: '';
     width: 25%;
     height: 4px;
+    left: 36%;
     background: blue;
    margin-top: 30px;
 }
@@ -228,12 +250,6 @@
   text-align: center;
 }
 
-.SliderparagrapRooms {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #666666;
-  margin-bottom: 20px;
-}
 .SliderscrollWrapper {
   display: flex;
   overflow-x: auto;
@@ -254,6 +270,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 15px;
   text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.SliderroomCard:hover {
+  transform: scale(1.05);
 }
 
 .SliderroomCard img {
@@ -261,16 +282,17 @@
   height: auto;
   border-radius: 4px;
 }
+
 .SliderroomDetails {
-  /* display: flex; */
-  /* align-items: center; */
-  margin: 10px ;
+  margin: 10px;
   gap: 15px;
 }
+
 .SliderroomName {
-  font-size: 1rem;
+  font-size: .8rem;
   font-weight: bold;
 }
+
 .sliderstars {
   font-size: large;
   margin-left: 65px;
@@ -279,6 +301,7 @@
 .sliderstars svg {
   margin-right: .8px;
 }
+
 .SliderpriceBtn {
   background-color: blueviolet;
   color: white;
@@ -286,12 +309,13 @@
   border-radius: .25rem;
   font-size: 14px;
   cursor: pointer;
-  margin:-15px 10px;
+  margin: -15px 10px;
 }
+
 .SlideractionButtons {
-  margin-top: 10px;
-  display: flex;
-  justify-content: start;
+  display: flex; /* Use flex to align buttons in a row */
+  justify-content: center; /* Center buttons */
+  margin-top: 10px; /* Space above buttons */
 }
 
 .SliderviewBtn {
@@ -299,10 +323,9 @@
   color: white;
   border: none;
   padding: 8px 12px;
-  margin-right: 10px;
   border-radius: 4px;
   cursor: pointer;
-  margin-left:.8rem;
+  margin-right: 10px; /* Space between buttons */
 }
 
 .SliderbookBtn {
@@ -312,28 +335,45 @@
   padding: 8px 12px;
   border-radius: 4px;
   cursor: pointer;
-  margin-left:5rem;
 }
 
-/* Responsive styles */
+/* Responsive styles for tablets and laptops */
+@media (max-width: 1024px) {
+  .SliderroomCard {
+    width: 260px;
+  }
+}
+
 @media (max-width: 768px) {
   .SliderroomCard {
-    width: 250px; 
+    width: 240px;
+  }
+
+  .sliderstars {
+    margin-left: 40px;
   }
 }
 
+/* Responsive styles for mobile screens */
 @media (max-width: 480px) {
   .SliderroomCard {
-    width: 200px; 
+    width: 200px;
   }
 
-  .SliderparagrapRooms {
-    font-size: 14px;
+  .SliderroomName {
+    font-size: 0.9rem;
   }
-.SliderviewBtn, .SliderbookBtn {
-    padding: 6px 10px; 
+
+  .sliderstars {
+    margin-left: 20px;
+  }
+
+  .SliderviewBtn,
+  .SliderbookBtn {
+    padding: 4px 8px; /* Reduce padding on buttons */
   }
 }
+
 /* Frequently  Main container for two columns */
 .FrequentlyContainer{
 max-width: 100%;
@@ -392,60 +432,50 @@ summary svg {
   color: #888;
 }
 /* feedbackContainer css   ........................ */
-.clientContainer{
+/* Client Feedback Section */
+.clientContainer {
   max-width: 100%;
   margin: 0 auto 30px;
   text-align: center;
 }
+
 .feedbackContainer {
   width: 100%;
   overflow: hidden;
   position: relative;
+  padding: 20px;
 }
 
 .scrollWrapper {
   display: flex;
   overflow-x: scroll;
-  padding: 20px;
   scroll-behavior: smooth;
   gap: 20px;
+  padding: 20px;
 }
 
 .scrollWrapper::-webkit-scrollbar {
-  display: none; /* Hides scrollbar */
+  display: none; /* Hide scrollbar */
 }
 
 .cardFeedback {
   flex: 0 0 auto;
-  }
-.cardtextFeedback{
-  flex: 0 0 auto;
-  /* font-size: 16px; */
-  width: 210px;
-  height: 380px;
-  /* background-color: #fff; */
+  width: 280px; /* Set a fixed width for feedback cards */
+  height: auto; /* Allow height to adjust based on content */
+  background-color: #fff5dc;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   text-align: center;
-  background-color: #fff5dc
-}
-.feedbackCards {
-  font-size: 1.2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
+  transition: transform 0.3s ease; /* Add a smooth transform effect */
 }
 
-.cardFeedback p {
-  /* font-size: 0.9rem; */
-  margin-bottom: 15px;
+.cardFeedback:hover {
+  transform: scale(1.05); /* Slight hover zoom effect */
 }
 
 .feedbackImage {
-  text-align: center;
-  margin-top: -34px;
+  margin-bottom: 20px;
 }
 
 .feedbackImage img {
@@ -465,27 +495,51 @@ summary svg {
   color: gray;
 }
 
-@media (max-width: 768px) {
+.feedbackText {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .scrollWrapper {
+    gap: 15px;
+  }
+
   .cardFeedback {
-    width: 250px;
+    width: 250px; /* Smaller width on tablets */
   }
 
-  .feedbackCards {
-    font-size: 1rem;
+  .feedbackText {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrollWrapper {
+    gap: 10px;
   }
 
-  .cardFeedback p {
-    font-size: 0.8rem;
+  .cardFeedback {
+    width: 220px; /* Adjust card width for mobile screens */
+  }
+
+  .feedbackText {
+    font-size: 0.85rem;
+  }
+
+  .feedbackImage img {
+    width: 80px; /* Smaller image on mobile */
+    height: 80px;
   }
 
   .feedbackImage h3 {
     font-size: 1rem;
   }
-
-  .feedbackImage span {
-    font-size: 0.8rem;
-  }
 }
+
 
  /* Our Team....................... */
  .OurTeamContainer {
@@ -514,33 +568,45 @@ summary svg {
 
 .OurTeamContainer .icon {
 text-align: center;
-margin-top: -160px;
-padding: 6px;
+margin-top: -175px;
+/* padding: 6px; */
 position: absolute;
-margin-left: 245px;
-font-size: larger;
+margin-left: 209px;
+font-size: 22px;
 display: flex;
-flex-direction: column-reverse;
+flex-direction: column;
 }
 .OurTeamContainer .icon  li{
   /* padding-bottom: 4px; */
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 .facebook{
   
   background-color:#ad58eb;
-  width: 20px;
+  width: 30px;
   color: white;
   border-radius: 4px;
-  align-items: end;
-  /* background-color: transparent; */
+  /* align-items: end; */
+   margin-right: 24px;
 }
+.IoShareSocialSharp{
+  background-color:#ad58eb;
+  background-color: #ad58eb;
+  margin-left: -37px;
+  font-size: 30px;
+  border-radius: 4px;
+  margin-bottom: -10px;
+  position: absolute;
+  margin-top: 280px;
+  color: white;
+}
+  
 
 .teamName {
   text-align: center;
 }
 .icon a {
-  display: inline-block;
+  display: block;
   opacity: 1;
   transition: all 0.3s ease;
 }
@@ -599,20 +665,37 @@ flex-direction: column-reverse;
 }
 
 .Blogicon {
-  border: 2px solid black;
+  font-size: 10px; 
   color: white;
-  background-color: black;
-  border-radius: .5rem;
-  font-size: 20px; 
   margin-top: -56px;
   width: 100px;
   margin-left: 190px;
 }
+.Blogicon span {
+  border: 2px solid white;
+  background-color: black;
+  border-radius: .5rem;
+  font-size: 20px; 
+  width: 100px;
+}
 
 .BlogName {
   text-align: center;
-  /* margin-top: -19px; */
   padding: 10px;
+}
+.BlogName a{
+  text-decoration: none;
+  cursor: pointer;
+  color: black;
+  margin-left: -150px;
+}
+.BlogName a:hover{
+  letter-spacing: 1px;
+  color:purple;
+  cursor: pointer;
+position: relative;
+  transition: all .3s ease-in-out;
+  text-decoration: underline;
 }
 
 /* Media Queries for Responsiveness */
@@ -626,5 +709,44 @@ flex-direction: column-reverse;
   .OurBlogContainer {
     grid-template-columns: 1fr; 
     margin: 20px;
+  }
+}
+
+
+
+
+/* Global Adjustments for iPad (768px - 1024px) */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .OurBlogContainer {
+    grid-template-columns: 1fr 1fr; 
+    margin: 20px auto; /* Center content horizontally */
+  }
+  
+  .OurTeamContainer {
+    grid-template-columns: 1fr 1fr; 
+    margin: 20px auto;
+  }
+  
+  .gridCard {
+    flex: 1 1 45%; /* Allow the grid cards to be more responsive */
+  }
+
+  .SliderroomCard {
+    width: 260px; /* Resize room cards for better fit */
+  }
+
+  .SlideractionButtons {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .feedbackContainer .cardFeedback {
+      width: 50%; /* Resize feedback cards */
+    margin: 0 auto;
+  }
+
+  /* SearchBox responsiveness */
+  .searchBox {
+    width: 90%; /* Make search box wider for tablet view */
   }
 }

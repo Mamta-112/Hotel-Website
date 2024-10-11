@@ -1,0 +1,173 @@
+.BookingContainer {
+  background-color: #ced4da;
+  height: 450px;
+  margin-top: 0;
+  background-image: url("/public/homePage/BookingForm.png");
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.BookingContainer ol{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    list-style: none;
+    gap:25px;
+    margin: 18px 500px;
+}
+.bookingTabs{
+    background-color: transparent;
+    text-align: center;
+}
+@media screen and (max-width: 1024px) {
+  .HouseLogo ol {
+    flex-direction: row;
+    margin-left: 390px; 
+  }
+
+}
+@media screen and (max-width: 768px) {
+  .BookingContainer h2 {
+    font-size: 32px;
+  }
+
+  .HouseLogo ol {
+    flex-direction: row;
+    margin-left: 320px; 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .BookingContainer h2 {
+    font-size: 28px; 
+  }
+
+  .HouseLogo ol {
+    gap: 5px; 
+    margin-left: 150px; 
+  }
+
+  .HouseLogo li {
+    font-size: 14px; 
+  }
+}
+
+
+ .navTabs {
+    background-color: transparent;
+    text-align: center;
+    border-bottom: 2px solid #eeeeee;
+}
+.bookingTabs .navlink.active{
+  color:#AD58EB;
+    border-bottom: 2px solid #AD58EB;
+    position: relative;
+    --mainColor: #AD58EB;
+    --secondaryColor: #D29CF4;
+}
+.navlink {
+    border: none;
+    background-color: transparent;
+    color: var(--blackColor);
+    border-radius: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: -2px;
+    font-size: 17px;
+    text-align: center;
+    display: inline-block;
+    text-transform: capitalize;
+    overflow: visible;
+    height: 50px;
+}
+
+
+.BookingBtn{
+    background-color: transparent;
+    text-align: center;
+    gap: 30px;
+    
+}
+.BookingBtn button{
+    border:  none;
+   position:  relative;
+   margin: 20px;
+  
+}
+.FormContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 217px;
+  border-radius: 8px;
+}
+
+.FormContainer div {
+  flex: 1 1 45%; 
+  margin-right: 10px;
+  margin: 12px 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; 
+  padding: 10px;
+}
+
+.FormContainer div:last-child {
+  margin-right: 0; 
+}
+
+.FormContainer div:last-child span {
+  margin-right: 600px;
+}
+
+.form-control {
+  width: 100%; 
+}
+
+.formControl {
+  width: 100%; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+  .BookNowBtn{
+    border:  2px solid black;
+   background-color:gainsboro;
+   width: 150px;
+   border-radius: 4px;
+   align-items:  center;
+   margin-top: 30px;
+   margin-left: 520px;
+   background-color:  pink;
+
+  }
+  @media screen and (max-width: 1024px) {
+    .BookNowBtn{
+      margin-top: 30px;
+      margin-left: 330px;
+  }
+  }
+  @media screen and (max-width: 768px) {
+    .BookNowBtn{
+      margin-top: 30px;
+      margin-left: 300px;
+  }
+  }
+  @media screen and (max-width: 480px) {
+    .BookNowBtn{
+      margin-top: 30px;
+      margin-left: 150px;
+    }
+  }
+
+
+  .animated-span {
+    display: inline-block; 
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  }
+  
+  .animated-span:hover {
+    transform: scale(1.1); 
+    background-color: #f5f5f5;
+  }
+  
